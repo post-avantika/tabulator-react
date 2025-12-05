@@ -1,95 +1,192 @@
+# Tabulator React TypeScript
+
 <p align="center">
   <img height="200" src="http://tabulator.info/images/logos/t_hollow.png">
 </p>
 
 <p align="center">
-	<img height="50" src="http://tabulator.info/images/tabulator.png">
+  <strong>React TypeScript Table Component Library</strong>
 </p>
 
 <p align="center">
-An easy to use interactive table generation JavaScript library
+  A complete React TypeScript implementation of Tabulator - fully native React components with no vanilla JavaScript dependencies.
 </p>
 
-<p align="center">
-Full documentation & demos can be found at:  <a href="http://tabulator.info">http://tabulator.info</a>
-</p>
+## ✨ Features
 
-***
-![Tabulator Table](http://tabulator.info/images/tabulator_table.jpg)
-***
+✅ **100% React TypeScript** - No vanilla JS/HTML, everything is React components  
+✅ **Full TypeScript Support** - Complete type definitions  
+✅ **Column Configuration** - Custom names, widths, CSS classes  
+✅ **Pagination** - Full pagination with page sizing  
+✅ **Infinite Scroll** - Automatic API pagination on scroll  
+✅ **Sorting & Filtering** - Built-in sorting and filtering  
+✅ **Row Selection** - Select single or multiple rows  
+✅ **Resizable Columns** - Drag to resize columns  
+✅ **Customizable Styling** - CSS classes and inline styles  
+✅ **Event Handlers** - Full event support  
+✅ **Ref Methods** - Programmatic control via refs  
 
+## 🚀 Quick Start
 
-Features
-================================
-Tabulator allows you to create interactive tables in seconds from any HTML Table, Javascript Array or JSON formatted data.
-
-Simply include the library and the css in your project and you're away!
-
-Tabulator is packed with useful features including:
-
-![Tabulator Features](http://olifolkerd.github.io/tabulator/images/featurelist_share.png)
-
-
-Frontend Framework Support
-================================
-Tabulator is built to work with all the major front end JavaScript frameworks including React, Angular and Vue.
-
-
-Setup
-================================
-Setting up tabulator could not be simpler.
-
-Include the library and the css
-```html
-<link href="dist/css/tabulator.min.css" rel="stylesheet">
-<script type="text/javascript" src="dist/js/tabulator.min.js"></script>
-```
-
-Create an element to hold the table
-```html
-<div id="example-table"></div>
-```
-
-Turn the element into a tabulator with some simple javascript
-```js
-var table = new Tabulator("#example-table", {});
-```
-
-
-### Bower Installation
-To get Tabulator via the Bower package manager, open a terminal in your project directory and run the following command:
-```
-bower install tabulator --save
-```
-
-### NPM Installation
-To get Tabulator via the NPM package manager, open a terminal in your project directory and run the following command:
-```
-npm install tabulator-tables --save
-```
-
-### CDN - UNPKG
-To access Tabulator directly from the UNPKG CDN servers, include the following two lines at the start of your project, instead of the locally hosted versions:
-```html
-<link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
-<script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
-```
-
-Testing
-================================
-Tabulator comes with both Unit and End-to-End (E2E) tests. Here’s how you can run them:
+### Installation
 
 ```bash
-# Unit test
-npm run test:unit
-
-# E2E test
-npm run build # Make sure to build the project first
-npx playwright test # Run the tests
-# or
-npm run test:e2e
-
-# Run all tests
-npm run test
+npm install tabulator-tables react react-dom typescript
 ```
 
+### Basic Usage
+
+```tsx
+import React from 'react';
+import Tabulator, { TabulatorColumn } from 'tabulator-tables';
+import 'tabulator-tables/styles/tabulator.css';
+
+function App() {
+  const columns: TabulatorColumn[] = [
+    { title: "Name", field: "name", width: 200, cssClass: "name-column" },
+    { title: "Age", field: "age", width: 100 },
+    { title: "Email", field: "email", width: 250 }
+  ];
+
+  const data = [
+    { id: 1, name: "John Doe", age: 30, email: "john@example.com" },
+    { id: 2, name: "Jane Smith", age: 25, email: "jane@example.com" }
+  ];
+
+  return (
+    <Tabulator
+      columns={columns}
+      data={data}
+      pagination={true}
+      paginationSize={10}
+      className="my-table"
+    />
+  );
+}
+```
+
+## 📖 Documentation
+
+- **Full Documentation**: See `src/react-ts/README.md`
+- **Infinite Scroll Guide**: See `src/react-ts/INFINITE_SCROLL.md`
+- **API Integration**: See `src/react-ts/examples/ApiIntegrationGuide.md`
+- **Examples**: See `src/react-ts/example.tsx` and `src/react-ts/examples/`
+
+## 🎯 Key Features
+
+### Column Configuration
+```tsx
+const columns: TabulatorColumn[] = [
+  {
+    title: "Name",
+    field: "name",
+    width: 200,
+    cssClass: "name-column",
+    sorter: "string",
+    resizable: true
+  }
+];
+```
+
+### Pagination
+```tsx
+<Tabulator
+  pagination={true}
+  paginationSize={25}
+  paginationSizeSelector={[10, 25, 50, 100]}
+/>
+```
+
+### Infinite Scroll with API
+```tsx
+<Tabulator
+  progressiveLoad="scroll"
+  progressiveLoadScrollMargin={200}
+  onProgressiveLoad={async (page) => {
+    const response = await fetch(`/api/users?page=${page}`);
+    const data = await response.json();
+    return data;
+  }}
+/>
+```
+
+### Using Ref
+```tsx
+const tableRef = useRef<TabulatorRef>(null);
+
+// Access methods
+tableRef.current?.setData(newData);
+tableRef.current?.setPage(2);
+tableRef.current?.getSelectedData();
+```
+
+## 📦 Project Structure
+
+```
+src/react-ts/
+├── components/          # React components
+│   ├── Tabulator.tsx   # Main table component
+│   ├── Row.tsx
+│   ├── Cell.tsx
+│   ├── ColumnHeader.tsx
+│   └── Pagination.tsx
+├── hooks/              # React hooks
+│   └── useTabulator.ts
+├── types/              # TypeScript types
+│   └── index.ts
+├── styles/             # CSS styles
+│   └── tabulator.css
+├── examples/          # Usage examples
+└── README.md          # Full documentation
+```
+
+## 🎨 Styling
+
+Import the CSS file:
+
+```tsx
+import 'tabulator-tables/styles/tabulator.css';
+```
+
+Customize with CSS classes or inline styles:
+
+```tsx
+<Tabulator
+  className="my-custom-table"
+  style={{ border: '1px solid #ccc' }}
+/>
+```
+
+## 📚 TypeScript Support
+
+All types are fully exported:
+
+```tsx
+import type {
+  TabulatorOptions,
+  TabulatorColumn,
+  TabulatorRow,
+  TabulatorCell,
+  TabulatorInstance,
+  TabulatorRef,
+} from 'tabulator-tables';
+```
+
+## 🔄 Migration from Vanilla JS
+
+This is a complete React TypeScript rewrite. If you were using the vanilla JavaScript version:
+
+1. **No more DOM manipulation** - Everything is React components
+2. **No more HTML strings** - Everything is JSX
+3. **TypeScript first** - Full type safety
+4. **React patterns** - Uses hooks, functional components, etc.
+
+## 📝 License
+
+MIT
+
+## 🔗 Links
+
+- **Full Documentation**: See `src/react-ts/README.md`
+- **Examples**: See `src/react-ts/examples/`
+- **Original Tabulator**: http://tabulator.info

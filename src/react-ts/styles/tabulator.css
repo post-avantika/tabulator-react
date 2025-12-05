@@ -1,0 +1,249 @@
+/* Tabulator React Styles */
+.tabulator {
+  position: relative;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.tabulator-header {
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+}
+
+.tabulator-header-contents {
+  overflow: hidden;
+}
+
+.tabulator-headers {
+  display: flex;
+  align-items: stretch;
+}
+
+.tabulator-col {
+  position: relative;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd;
+  background-color: #f5f5f5;
+  text-align: left;
+  vertical-align: bottom;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tabulator-col-content {
+  position: relative;
+  padding: 8px;
+}
+
+.tabulator-col-title {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 4px;
+  vertical-align: bottom;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tabulator-col-title.tabulator-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.tabulator-col-title.tabulator-sortable:hover {
+  background-color: #e8e8e8;
+}
+
+.tabulator-arrow {
+  margin-left: 4px;
+}
+
+.tabulator-col-resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  cursor: col-resize;
+  z-index: 10;
+}
+
+.tabulator-col-resize-handle:hover {
+  background-color: #007bff;
+  opacity: 0.5;
+}
+
+.tabulator-tableHolder {
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabulator-table {
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  white-space: nowrap;
+  overflow: visible;
+  color: #333;
+}
+
+.tabulator-row {
+  min-height: 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabulator-row:hover {
+  background-color: #f5f5f5;
+}
+
+.tabulator-row.tabulator-selected {
+  background-color: #9abcea;
+}
+
+.tabulator-row-even {
+  background-color: #fff;
+}
+
+.tabulator-row-odd {
+  background-color: #f9f9f9;
+}
+
+.tabulator-cell {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  padding: 8px;
+  vertical-align: middle;
+  border-right: 1px solid #ddd;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabulator-cell-editor {
+  width: 100%;
+  border: 1px solid #007bff;
+  padding: 4px;
+}
+
+.tabulator-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #999;
+  font-style: italic;
+}
+
+.tabulator-paginator {
+  padding: 8px;
+  border-top: 1px solid #ddd;
+  background-color: #f5f5f5;
+}
+
+.tabulator-paginator-contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tabulator-paginator-counter {
+  color: #666;
+  font-size: 13px;
+}
+
+.tabulator-paginator-pages {
+  display: flex;
+  gap: 4px;
+}
+
+.tabulator-page {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.tabulator-page:hover:not(:disabled) {
+  background-color: #e8e8e8;
+}
+
+.tabulator-page:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tabulator-page-active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.tabulator-paginator-size {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tabulator-paginator-size label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.tabulator-page-size {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* Layout modes */
+.tabulator-layout-fitColumns .tabulator-col {
+  flex: 0 0 auto;
+}
+
+.tabulator-layout-fitData .tabulator-col {
+  flex: 0 0 auto;
+}
+
+.tabulator-layout-fitDataFill .tabulator-col {
+  flex: 1 1 0;
+}
+
+.tabulator-layout-fitDataStretch .tabulator-col {
+  flex: 1 1 0;
+}
+
+/* Progressive Load / Infinite Scroll */
+.tabulator-progressive-load {
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.tabulator-loading {
+  color: #666;
+  font-size: 13px;
+}
+
+.tabulator-no-more {
+  color: #999;
+  font-size: 12px;
+  font-style: italic;
+}
+
