@@ -1,5 +1,5 @@
 {
-  "name": "tabulator-react",
+  "name": "@post-avantika/tabulator-react",
   "version": "6.3.1",
   "description": "React TypeScript table component library - Interactive table generation with React and TypeScript",
   "main": "./src/react-ts/index.ts",
