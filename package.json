@@ -1,57 +1,47 @@
 {
   "name": "@post-avantika/tabulator-react",
-  "version": "6.3.1",
-  "description": "React TypeScript table component library - Interactive table generation with React and TypeScript",
-  "main": "./src/react-ts/index.ts",
-  "module": "./src/react-ts/index.ts",
-  "types": "./src/react-ts/index.ts",
+  "version": "1.0.0",
+  "description": "Customized React TypeScript Table Library (Fork of Tabulator)",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "exports": {
-    ".": "./src/react-ts/index.ts",
-    "./components": "./src/react-ts/components",
-    "./hooks": "./src/react-ts/hooks",
-    "./types": "./src/react-ts/types",
-    "./styles": "./src/react-ts/styles",
-    "./styles/tabulator.css": "./src/react-ts/styles/tabulator.css"
+    ".": "./dist/index.js"
   },
   "peerDependencies": {
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1"
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
   },
   "scripts": {
-    "lint": "echo 'Linting React TypeScript code...'",
+    "build": "tsc",
     "type-check": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/olifolkerd/tabulator.git"
+    "url": "https://github.com/post-avantika/tabulator-react.git"
   },
   "keywords": [
     "table",
-    "grid",
     "datagrid",
     "tabulator",
     "react",
     "typescript",
-    "react-component",
-    "table-component",
-    "data-table",
-    "editable",
-    "sort",
-    "format",
-    "resizable",
     "pagination",
     "infinite-scroll"
   ],
-  "author": "Oli Folkerd",
+  "author": "Avantika",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/olifolkerd/tabulator/issues"
-  },
-  "homepage": "https://tabulator.info/",
   "devDependencies": {
+    "typescript": "^5.9.3",
     "@types/node": "^22.13.5",
     "@types/react": "^18.3.27",
-    "@types/react-dom": "^18.3.7",
-    "typescript": "^5.9.3"
+    "@types/react-dom": "^18.3.7"
   }
 }
